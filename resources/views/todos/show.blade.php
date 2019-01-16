@@ -13,14 +13,19 @@
     </ul>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col align-self-start">
-            <a href="/todo/{{$todo->id}}/edit" class="btn btn-secondary btn-sm">Edit</a>
-        </div>
-        <div class="col-auto">
-            <a href="/todo/{{$todo->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
-        </div>
+<div class="row">
+    <div class="col-2 align-self-start">
+        <a class="btn btn-secondary"  href="/todo/{{$todo->id}}/edit ">Edit</a>
     </div>
+    <div class="col-2 align-self-end">
+        <form action="{{action('TodosController@destroy', [$todo->id])}}" method="POST">
+                <?= csrf_field() ?>
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+
 </div>
 
 @endsection

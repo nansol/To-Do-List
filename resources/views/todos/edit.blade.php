@@ -8,6 +8,7 @@
 <form action="{{action('TodosController@update', [$todo->id])}}" method="POST" >
 
     <?= csrf_field() ?>
+    @method("PUT")
 
 
     <div class="form-group">
